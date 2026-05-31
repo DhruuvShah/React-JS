@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <!-- Warm amber gradient — gold at top-left, deep amber at bottom-right -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#FCD34D"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+    <!-- Subtle inner shine for icon-depth (top-left highlight) -->
+    <radialGradient id="shine" cx="0.28" cy="0.22" r="0.68">
+      <stop offset="0%"   stop-color="rgba(255,255,255,0.28)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="32" height="32" rx="7" fill="url(#bg)"/>
+  <!-- Depth highlight overlay -->
+  <rect width="32" height="32" rx="7" fill="url(#shine)"/>
+  <!-- Hairline border for definition -->
+  <rect width="32" height="32" rx="7" fill="none" stroke="rgba(0,0,0,0.14)" stroke-width="1"/>
+
+  <!-- Crossed utensils (fork + knife) in white -->
+  <g stroke="white" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Fork shaft: lower-left → upper-right -->
+    <line x1="9" y1="26.5" x2="20" y2="7.5" stroke-width="2.2"/>
+    <!-- Fork tines: two short lines branching from midpoint of shaft tip -->
+    <line x1="18" y1="10.5" x2="16" y2="7"   stroke-width="1.75"/>
+    <line x1="18" y1="10.5" x2="21.5" y2="8"  stroke-width="1.75"/>
+
+    <!-- Knife shaft: lower-right → upper-left -->
+    <line x1="23" y1="26.5" x2="12" y2="7.5" stroke-width="2.2"/>
+    <!-- Knife blade edge at tip (suggests a ground edge) -->
+    <line x1="12" y1="7.5"  x2="10" y2="10"  stroke-width="1.75"/>
+  </g>
+</svg>
