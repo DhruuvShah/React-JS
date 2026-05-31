@@ -1,45 +1,44 @@
-import { nanoid } from "nanoid";
-import { useState } from "react";
+import { useState } from "react"
+import { ArrowRight } from "lucide-react"
 
-const Create = ({ todos, settodos }) => {
-  const [title, settitle] = useState("");
+const Create = ({ onAdd }) => {
+  const [title, setTitle] = useState("")
 
-  const SubmitHandler = (e) => {
-    e.preventDefault();
-    const newtodo = {
-      id: nanoid(),
-      title,
-      isCompleted: false
-    };
-    settodos([...todos, newtodo]);
-    settitle("");
-  };
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const trimmed = title.trim()
+    if (!trimmed) return
+    onAdd(trimmed)
+    setTitle("")
+  }
 
   return (
-    <div className="w-full md:w-1/2 p-6 bg-gray-800 rounded-2xl shadow-xl border border-gray-700">
-      <h1 className="mb-6 text-3xl md:text-4xl font-bold tracking-tight">
-        Set <span className="text-red-400">Reminders</span> for tasks
-      </h1>
-      <form onSubmit={SubmitHandler} className="space-y-5">
-        <div>
-          <label className="block text-sm mb-1 font-medium text-gray-300">Task Title</label>
-          <input
-            className="w-full px-4 py-3 rounded-lg bg-gray-100 text-gray-900 text-base focus:outline-none focus:ring-2 focus:ring-red-400 shadow-sm"
-            onChange={(e) => settitle(e.target.value)}
-            value={title}
-            type="text"
-            placeholder="e.g. Buy groceries"
-          />
-        </div>
-        <button
-          type="submit"
-          className="w-full py-3 bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white rounded-lg font-semibold transition-all shadow-lg"
-        >
-          ➕ Add Task
-        </button>
-      </form>
-    </div>
-  );
-};
+    <form
+      onSubmit={handleSubmit}
+      style={{
+        display: "flex",
+        gap: "0.625rem",
+        marginBottom: "1.75rem",
+      }}
+    >
+      <input
+        className="form-input"
+        value={title}
+        onChange={e => setTitle(e.target.value)}
+        placeholder="Add a task…"
+        style={{ flex: 1 }}
+        autoFocus
+      />
+      <button
+        type="submit"
+        className="btn btn-primary"
+        disabled={!title.trim()}
+        style={{ padding: "0.8125rem 1.375rem", flexShrink: 0 }}
+      >
+        <ArrowRight size={16} strokeWidth={2.5} />
+      </button>
+    </form>
+  )
+}
 
-export default Create;
+export default Create
