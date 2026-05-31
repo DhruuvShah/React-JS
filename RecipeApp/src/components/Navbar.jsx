@@ -87,7 +87,7 @@ const Navbar = () => {
             <UtensilsCrossed size={14} color="#fff" strokeWidth={2.5} />
           </div>
           <span
-            className="font-display"
+            className="font-display nav-brand-label"
             style={{ fontSize: "1.125rem", fontWeight: 700, color: "var(--color-text)", letterSpacing: "-0.01em" }}
           >
             RecipeVault
@@ -104,7 +104,7 @@ const Navbar = () => {
         </nav>
 
         {/* Right actions */}
-        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", flexShrink: 0 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", flexShrink: 0, marginLeft: "auto" }}>
           {/* Saved heart */}
           <Link
             to="/recipes?filter=saved"

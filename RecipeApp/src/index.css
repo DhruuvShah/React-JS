@@ -338,6 +338,9 @@ h4, h5, h6 {
   .nav-cta-desktop {
     display: none !important;
   }
+  .nav-brand-label {
+    display: none;
+  }
 }
 
 /* ─── Responsive Layouts ────────────────────────────────────── */
