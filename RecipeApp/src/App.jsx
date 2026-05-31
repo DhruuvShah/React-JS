@@ -3,9 +3,11 @@ import Navbar from "./components/Navbar"
 
 const App = () => {
   return (
-    <div className="py-10 px-[10%] w-screen h-screen bg-gray-800 text-white font-thin "> 
-    <Navbar/>
-      <Mainroutes />
+    <div style={{ minHeight: "100vh", background: "var(--color-bg)" }}>
+      <Navbar />
+      <main>
+        <Mainroutes />
+      </main>
     </div>
   )
 }
